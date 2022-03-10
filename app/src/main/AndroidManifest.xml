@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Activity2" >
         <activity
+            android:name=".ActivityHasil"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/label2"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>

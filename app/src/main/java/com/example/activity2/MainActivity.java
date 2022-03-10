@@ -1,6 +1,8 @@
 package com.example.activity2;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +38,9 @@ public class MainActivity extends AppCompatActivity
         nama = edemail.getText().toString();
         password = edpassword.getText().toString();
 
+        String email = "nursakinah@gmail.com";
+        String pass = "141";
+
         if (nama.isEmpty() && password.isEmpty())
         {
             edemail.setError("Email Diperlukan");
@@ -45,6 +50,12 @@ public class MainActivity extends AppCompatActivity
                 Toast t = Toast.makeText(getApplicationContext(),
                         "Login Berhasil. Email anda : " + nama + " dan Password anda : " + password + "", Toast.LENGTH_LONG);
                 t.show();
+                Bundle b = new Bundle();
+                b.putString("a", nama.trim());
+                b.putString("b", password.trim());
+                Intent i = new Intent(getApplicationContext(), ActivityHasil.class);
+                i.putExtras(b);
+                startActivity(i);
             } else if (!nama.equals("nursakinah@gmail.com") && password.equals("141")) {
                 Toast t = Toast.makeText(getApplicationContext(),
                         "Email salah", Toast.LENGTH_LONG);
